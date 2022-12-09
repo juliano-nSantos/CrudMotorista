@@ -3,6 +3,7 @@ No back-end
   - API Rest implementando alguns conceitos do DDD e code first
 No front-end
  - Angular 
+ 
 ORM
   - EFCore
   
