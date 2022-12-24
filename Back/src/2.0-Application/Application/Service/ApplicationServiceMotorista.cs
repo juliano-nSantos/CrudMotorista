@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Application.DTO.DTO;
 using Application.Interfaces;
 using Domain.Core.Interfaces.Services;
+using Domain.Models;
 using Infra.CrossCutting.Adapter.Interfaces;
 
 namespace Application.Service
@@ -46,6 +47,24 @@ namespace Application.Service
                 var lstMotorista = _serviceMotorista.GetAll();
 
                 return _mapperMotorista.MapperListMotorista(lstMotorista);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
+
+        public List<MotoristaDTO> GetByFilter(FiltroBuscaMotorista filtro)
+        {
+            try
+            {
+                var lstMotorista = _serviceMotorista.GetByFilter(filtro);
+
+                return _mapperMotorista.MapperListMotorista(lstMotorista);
+            }
+            catch (ArgumentException ax)
+            {
+                throw new ArgumentException(ax.Message);
             }
             catch (Exception ex)
             {

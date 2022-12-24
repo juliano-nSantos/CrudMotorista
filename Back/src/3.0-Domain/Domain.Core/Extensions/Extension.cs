@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Domain.Services.Extensions
+namespace Domain.Core.Extensions
 {
     public static class Extension
     {
@@ -22,6 +22,14 @@ namespace Domain.Services.Extensions
             if (!string.IsNullOrEmpty(value))
                 return true;
 
+            return false;
+        }
+
+        public static bool NotIsNullOrGreaterThanZero(this int? value)
+        {
+            if(!string.IsNullOrEmpty(value.ToString()) && value > 0)
+                return true;
+            
             return false;
         }
 
